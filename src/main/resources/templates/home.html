@@ -34,6 +34,9 @@
                 <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link" th:href="@{/admin/dashboard}">관리자</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/user/password}">비밀번호 변경</a>
+                </li>
             </ul>
             <form th:action="@{/logout}" method="post" class="d-flex">
                 <button class="btn btn-outline-light btn-sm px-3">로그아웃</button>
@@ -53,6 +56,10 @@
                   class="badge bg-white text-dark badge-role me-1"
                   th:text="${role}"></span>
         </div>
+    </div>
+
+    <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}">
+        비밀번호가 변경되었습니다.
     </div>
 
     <!-- Quick Links -->
