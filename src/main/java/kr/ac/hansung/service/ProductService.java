@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -45,5 +43,17 @@ public class ProductService {
     @Transactional
     public void deleteById(Long id) {
         productRepository.deleteById(id);
+    }
+
+    @Transactional
+    public Product updateProduct(Long id, ProductDto dto){
+        Product product = findById(id);
+
+        product.setName(dto.getName());
+        product.setPrice(dto.getPrice());
+        product.setDescription(dto.getDescription());
+        product.setStock(dto.getStock());
+
+        return product;
     }
 }
