@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<footer th:fragment="footer" class="text-center text-muted small mt-4 py-3 border-top">
+  <p th:text="${'실습 수행: ' + #temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm:ss') + ' | 학번 : 2071011 | 성명 : 김준호'}"></p>
+</footer>
+</body>
+</html>
